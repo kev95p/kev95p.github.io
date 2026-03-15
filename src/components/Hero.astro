@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets';
+import profilePhoto from '../assets/profile-photo.jpg';
+
+interface Props {
+	name: string;
+	title: string;
+	introduction: string;
+}
+
+const { name, title, introduction } = Astro.props;
+---
+
+<section id="hero" class="hero" aria-labelledby="hero-heading">
+	<div class="container">
+		<div class="hero-content">
+			<Image
+				src={profilePhoto}
+				alt="Kevin Pleitez - Mobile Developer"
+				class="avatar"
+				width={240}
+				height={240}
+				format="webp"
+				quality={85}
+				loading="eager"
+			/>
+			<h1 id="hero-heading" class="name">{name}</h1>
+			<p class="title">{title}</p>
+			<p class="introduction">{introduction}</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		min-height: auto;
+		padding: var(--spacing-lg) 0;
+		display: flex;
+		align-items: center;
+		background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-background) 100%);
+	}
+
+	.hero-content {
+		text-align: center;
+	}
+
+	.avatar {
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		object-fit: cover;
+		margin: 0 auto var(--spacing-sm);
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+	}
+
+	.name {
+		margin-bottom: 0.25rem;
+		color: var(--color-text);
+	}
+
+	.title {
+		font-size: 1rem;
+		color: var(--color-primary);
+		font-weight: 500;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.introduction {
+		font-size: 0.95rem;
+		color: var(--color-text-muted);
+		max-width: 500px;
+		margin: 0 auto;
+		line-height: 1.6;
+	}
+
+	@media (max-width: 640px) {
+		.avatar {
+			width: 100px;
+			height: 100px;
+		}
+
+		.introduction {
+			font-size: 0.9rem;
+		}
+	}
+</style>
