@@ -5,6 +5,7 @@ interface ExperienceItem {
 	period: string;
 	location?: string;
 	description?: string;
+	details?: string[];
 }
 
 interface Props {
@@ -32,6 +33,13 @@ const { experiences } = Astro.props;
 							</div>
 							{exp.location && <span class="location">{exp.location}</span>}
 							{exp.description && <p class="description">{exp.description}</p>}
+						{exp.details && (
+							<ul class="highlights" role="list">
+								{exp.details.map((detail) => (
+									<li>{detail}</li>
+								))}
+							</ul>
+						)}
 						</article>
 					</li>
 				))
@@ -143,6 +151,23 @@ const { experiences } = Astro.props;
 		line-height: 1.5;
 	}
 
+	.highlights {
+		margin: var(--spacing-xs) 0 0 0;
+		padding-left: 1rem;
+		list-style: disc;
+		color: var(--color-text-muted);
+		font-size: 0.8rem;
+		line-height: 1.6;
+	}
+
+	.highlights li {
+		margin-bottom: 0.25rem;
+	}
+
+	.highlights li:last-child {
+		margin-bottom: 0;
+	}
+
 	@media (min-width: 480px) {
 		.timeline-item {
 			padding-left: 2rem;
@@ -181,6 +206,10 @@ const { experiences } = Astro.props;
 		}
 
 		.description {
+			font-size: 0.85rem;
+		}
+
+		.highlights {
 			font-size: 0.85rem;
 		}
 	}

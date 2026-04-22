@@ -5,8 +5,8 @@ interface Props {
 }
 
 const {
-	title = 'Kevin Pleitez - Mobile Developer',
-	description = 'Mobile Developer with 7+ years of experience in iOS, Android, Flutter, and cross-platform development.',
+	title = 'Kevin Pleitez - Fullstack Developer',
+	description = 'Fullstack Developer with 7+ years of experience in mobile (iOS, Android, Flutter), backend (Node.js, Java, PHP), and AI-assisted development.',
 } = Astro.props;
 
 const siteUrl = Astro.site?.origin ?? 'https://kev95p.github.io';
@@ -35,7 +35,7 @@ const ogImageUrl = `${siteUrl}/og-image.png`;
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:image" content={ogImageUrl} />
-		<meta property="og:image:alt" content="Kevin Pleitez - Mobile Developer" />
+		<meta property="og:image:alt" content="Kevin Pleitez - Fullstack Developer" />
 
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
@@ -60,11 +60,19 @@ const ogImageUrl = `${siteUrl}/og-image.png`;
 				'@context': 'https://schema.org',
 				'@type': 'Person',
 				name: 'Kevin Pleitez',
-				jobTitle: 'Mobile Developer',
+				jobTitle: 'Fullstack Developer',
 				description: description,
 				email: 'pleitez95geova@gmail.com',
-				url: 'https://kpleitez.com',
-				sameAs: ['https://www.linkedin.com/in/kpleitez/'],
+				url: 'https://kev95p.github.io',
+				address: {
+					'@type': 'PostalAddress',
+					addressLocality: 'San Salvador',
+					addressCountry: 'El Salvador',
+				},
+				sameAs: [
+					'https://www.linkedin.com/in/kpleitez/',
+					'https://github.com/kev95p',
+				],
 			})}
 		/>
 	</head>
