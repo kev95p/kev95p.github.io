@@ -64,21 +64,23 @@ Astro components use the `.astro` extension with this structure:
 ---
 // Frontmatter: Server-side JavaScript/TypeScript
 import Component from '../components/Component.astro';
-const data = "value";
+const data = 'value';
 ---
 
 <!-- Template: HTML with JSX-like expressions -->
 <div class="container">
-  <Component prop={data} />
+	<Component prop={data} />
 </div>
 
 <style>
-  /* Scoped CSS by default */
-  .container { /* styles */ }
+	/* Scoped CSS by default */
+	.container {
+		/* styles */
+	}
 </style>
 
 <script>
-  // Client-side JavaScript (optional)
+	// Client-side JavaScript (optional)
 </script>
 ```
 
@@ -104,9 +106,7 @@ const data = "value";
 
 ```astro
 <!-- Good: Multiline elements -->
-<a href="https://example.com"
-  ><img src={logo.src} alt="Logo"
-/></a>
+<a href="https://example.com"><img src={logo.src} alt="Logo" /></a>
 ```
 
 ### CSS Guidelines
@@ -124,8 +124,8 @@ const data = "value";
 ```astro
 ---
 interface Props {
-  title: string;
-  count?: number;
+	title: string;
+	count?: number;
 }
 
 const { title, count = 0 } = Astro.props;
@@ -140,7 +140,7 @@ const { title, count = 0 } = Astro.props;
 ---
 // src/layouts/Layout.astro
 interface Props {
-  title?: string;
+	title?: string;
 }
 
 const { title = 'Default Title' } = Astro.props;
@@ -148,13 +148,13 @@ const { title = 'Default Title' } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>{title}</title>
-  </head>
-  <body>
-    <slot />
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
 </html>
 ```
 
@@ -168,7 +168,7 @@ import Component from '../components/Component.astro';
 ---
 
 <Layout title="Page Title">
-  <Component />
+	<Component />
 </Layout>
 ```
 

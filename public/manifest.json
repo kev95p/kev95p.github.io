@@ -1,0 +1,21 @@
+{
+	"name": "Kevin Pleitez - Mobile Developer",
+	"short_name": "Kevin Pleitez",
+	"description": "Mobile Developer with 7+ years of experience in iOS, Android, Flutter, and cross-platform development.",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#0f172a",
+	"theme_color": "#0f172a",
+	"icons": [
+		{
+			"src": "/favicon.svg",
+			"sizes": "any",
+			"type": "image/svg+xml"
+		},
+		{
+			"src": "/apple-touch-icon.png",
+			"sizes": "180x180",
+			"type": "image/png"
+		}
+	]
+}

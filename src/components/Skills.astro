@@ -15,16 +15,18 @@ const { skillCategories } = Astro.props;
 	<div class="container">
 		<h2 id="skills-heading">Skills</h2>
 		<ul class="skills-grid" role="list">
-			{skillCategories.map((category) => (
-				<li class="skill-category">
-					<h3 class="category-title">{category.category}</h3>
-					<ul class="skill-tags" role="list">
-						{category.skills.map((skill) => (
-							<li class="skill-tag">{skill}</li>
-						))}
-					</ul>
-				</li>
-			))}
+			{
+				skillCategories.map((category) => (
+					<li class="skill-category">
+						<h3 class="category-title">{category.category}</h3>
+						<ul class="skill-tags" role="list">
+							{category.skills.map((skill) => (
+								<li class="skill-tag">{skill}</li>
+							))}
+						</ul>
+					</li>
+				))
+			}
 		</ul>
 	</div>
 </section>

@@ -1,0 +1,34 @@
+import astroPlugin from 'eslint-plugin-astro';
+import tsParser from '@typescript-eslint/parser';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+
+export default [
+	...astroPlugin.configs['flat/recommended'],
+	{
+		files: ['**/*.astro'],
+		languageOptions: {
+			parser: astroPlugin.parser,
+			parserOptions: {
+				extraFileExtensions: ['.astro'],
+			},
+		},
+	},
+	{
+		files: ['**/*.{ts,tsx}'],
+		languageOptions: {
+			parser: tsParser,
+			parserOptions: {
+				project: true,
+			},
+		},
+		plugins: {
+			'@typescript-eslint': tsPlugin,
+		},
+		rules: {
+			...tsPlugin.configs.recommended.rules,
+		},
+	},
+	{
+		ignores: ['dist/', '.astro/', 'node_modules/', 'pnpm-lock.yaml'],
+	},
+];

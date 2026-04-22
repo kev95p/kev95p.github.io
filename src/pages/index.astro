@@ -6,87 +6,114 @@ import Skills from '../components/Skills.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 
-const profile = {
+interface Experience {
+	company: string;
+	role: string;
+	period: string;
+	location?: string;
+}
+
+interface SkillCategory {
+	category: string;
+	skills: string[];
+}
+
+interface SocialLink {
+	label: string;
+	href: string;
+	icon: string;
+}
+
+interface Profile {
+	name: string;
+	title: string;
+	introduction: string;
+	experiences: Experience[];
+	skillCategories: SkillCategory[];
+	email: string;
+	socialLinks: SocialLink[];
+}
+
+const profile: Profile = {
 	name: 'Kevin Pleitez',
 	title: 'Mobile Developer | iOS & Android',
-	introduction: 'Mobile developer specializing in native iOS and Android applications. With 7+ years of experience across UIKit, SwiftUI, Jetpack Compose, and cross-platform frameworks like Flutter and Kotlin Multiplatform. I build scalable, maintainable mobile solutions using clean architecture principles.',
+	introduction:
+		'Mobile developer specializing in native iOS and Android applications. With 7+ years of experience across UIKit, SwiftUI, Jetpack Compose, and cross-platform frameworks like Flutter and Kotlin Multiplatform. I build scalable, maintainable mobile solutions using clean architecture principles.',
 	experiences: [
 		{
 			company: 'Business Development Group, S.A.',
 			role: 'Mobile Developer',
-			period: 'May 2024 - Present'
+			period: 'May 2024 - Present',
 		},
 		{
 			company: 'Niu App',
 			role: 'Mobile Developer',
 			period: 'Jan 2023 - May 2024',
-			location: 'San Salvador, El Salvador'
+			location: 'San Salvador, El Salvador',
 		},
 		{
 			company: 'Tecnoin',
 			role: 'iOS Developer',
 			period: 'Jun 2022 - Dec 2022',
-			location: 'San Salvador, El Salvador'
+			location: 'San Salvador, El Salvador',
 		},
 		{
 			company: 'Grupo GD',
 			role: 'iOS App Developer',
-			period: 'Apr 2021 - Jun 2022'
+			period: 'Apr 2021 - Jun 2022',
 		},
 		{
 			company: 'Creativa Consultores S.A.',
 			role: 'Full Stack Developer',
 			period: 'May 2018 - Feb 2021',
-			location: 'El Salvador'
+			location: 'El Salvador',
 		},
 		{
 			company: 'Universidad de Sonsonate',
 			role: 'Instructor',
 			period: 'Jul 2020 - Dec 2020',
-			location: 'Sonsonate, El Salvador'
+			location: 'Sonsonate, El Salvador',
 		},
 		{
 			company: 'Sandoval y Guevara Inversiones',
 			role: 'Software Developer',
 			period: 'Jan 2018 - May 2018',
-			location: 'El Salvador'
-		}
+			location: 'El Salvador',
+		},
 	],
 	skillCategories: [
 		{
 			category: 'Mobile',
-			skills: ['SwiftUI', 'UIKit', 'Jetpack Compose', 'Flutter', 'KMP']
+			skills: ['SwiftUI', 'UIKit', 'Jetpack Compose', 'Flutter', 'KMP'],
 		},
 		{
 			category: 'Languages',
-			skills: ['Swift', 'Kotlin', 'Dart', 'Java', 'TypeScript', 'PHP']
+			skills: ['Swift', 'Kotlin', 'Dart', 'Java', 'TypeScript', 'PHP'],
 		},
 		{
 			category: 'Backend',
-			skills: ['JavaSpring', 'REST APIs', 'Full Stack']
+			skills: ['JavaSpring', 'REST APIs', 'Full Stack'],
 		},
 		{
 			category: 'Tools',
-			skills: ['Git', 'Docker', 'Clean Architecture', 'CI/CD']
-		}
+			skills: ['Git', 'Docker', 'Clean Architecture', 'CI/CD'],
+		},
 	],
 	email: 'pleitez95geova@gmail.com',
 	socialLinks: [
 		{
 			label: 'LinkedIn',
 			href: 'https://www.linkedin.com/in/kpleitez/',
-			icon: 'linkedin'
-		}
-	]
+			icon: 'linkedin',
+		},
+	],
 };
 ---
 
 <Layout title={`Kevin Pleitez - Mobile Developer`}>
-	<main>
-		<Hero name={profile.name} title={profile.title} introduction={profile.introduction} />
-		<Experience experiences={profile.experiences} />
-		<Skills skillCategories={profile.skillCategories} />
-		<Contact email={profile.email} links={profile.socialLinks} />
-	</main>
+	<Hero name={profile.name} title={profile.title} introduction={profile.introduction} />
+	<Experience experiences={profile.experiences} />
+	<Skills skillCategories={profile.skillCategories} />
+	<Contact email={profile.email} links={profile.socialLinks} />
 	<Footer />
 </Layout>

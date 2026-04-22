@@ -23,6 +23,7 @@ const { name, title, introduction } = Astro.props;
 				format="webp"
 				quality={85}
 				loading="eager"
+				fetchpriority="high"
 			/>
 			<h1 id="hero-heading" class="name">{name}</h1>
 			<p class="title">{title}</p>

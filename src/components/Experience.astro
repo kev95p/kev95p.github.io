@@ -18,22 +18,24 @@ const { experiences } = Astro.props;
 	<div class="container">
 		<h2 id="experience-heading">Experience</h2>
 		<ol class="timeline" role="list">
-			{experiences.map((exp) => (
-				<li class="timeline-item">
-					<div class="timeline-dot" aria-hidden="true"></div>
-					<article class="card">
-						<div class="card-header">
-							<div class="role-wrapper">
-								<h3 class="role">{exp.role}</h3>
-								<span class="company">{exp.company}</span>
+			{
+				experiences.map((exp) => (
+					<li class="timeline-item">
+						<div class="timeline-dot" aria-hidden="true" />
+						<article class="card">
+							<div class="card-header">
+								<div class="role-wrapper">
+									<h3 class="role">{exp.role}</h3>
+									<span class="company">{exp.company}</span>
+								</div>
+								<span class="period">{exp.period}</span>
 							</div>
-							<span class="period">{exp.period}</span>
-						</div>
-						{exp.location && <span class="location">{exp.location}</span>}
-						{exp.description && <p class="description">{exp.description}</p>}
-					</article>
-				</li>
-			))}
+							{exp.location && <span class="location">{exp.location}</span>}
+							{exp.description && <p class="description">{exp.description}</p>}
+						</article>
+					</li>
+				))
+			}
 		</ol>
 	</div>
 </section>
@@ -76,7 +78,7 @@ const { experiences } = Astro.props;
 
 	.timeline-dot {
 		position: absolute;
-		left:0;
+		left: 0;
 		top: 7px;
 		width: 12px;
 		height: 12px;
@@ -147,7 +149,7 @@ const { experiences } = Astro.props;
 		}
 
 		.timeline-dot {
-			left:0;
+			left: 0;
 			width: 12px;
 			height: 12px;
 		}
